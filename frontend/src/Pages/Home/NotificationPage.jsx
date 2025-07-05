@@ -14,7 +14,7 @@ const NotificationPage = () => {
     const fetchNotifications = async () => {
       try {
         const token = localStorage.getItem('token'); // Adjust based on where you store the token
-        const response = await fetch('http://localhost:5000/api/notifications', {
+        const response = await fetch('https://bitebuddy-backend-6wwq.onrender.com/api/notifications', {
           headers: {
             'Authorization': `Bearer ${token}`, // Add token here
           },
@@ -25,7 +25,7 @@ const NotificationPage = () => {
         // Rest of your code...
         const enrichedData = await Promise.all(data.map(async (notif) => {
           if (notif.type === 'rating' && notif.order && notif.order.orderNumber) {
-            const orderResponse = await fetch(`http://localhost:5000/api/orders/${notif.order.orderNumber}`, {
+            const orderResponse = await fetch(`https://bitebuddy-backend-6wwq.onrender.com/api/orders/${notif.order.orderNumber}`, {
               headers: {
                 'Authorization': `Bearer ${token}`, // Add token here too
               },
@@ -54,7 +54,7 @@ const NotificationPage = () => {
 
   const markAsRead = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/notifications/${id}`, {
+      await fetch(`https://bitebuddy-backend-6wwq.onrender.com/api/notifications/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ read: true }),
@@ -82,7 +82,7 @@ const NotificationPage = () => {
       console.log('Clearing all notifications');
   
       // Single DELETE request to clear all notifications for the user
-      const response = await fetch(`http://localhost:5000/api/notifications`, {
+      const response = await fetch(`https://bitebuddy-backend-6wwq.onrender.com/api/notifications`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ const NotificationPage = () => {
       }
 
       // Send DELETE request to backend
-      const response = await fetch(`http://localhost:5000/api/notifications/${notificationId}`, {
+      const response = await fetch(`https://bitebuddy-backend-6wwq.onrender.com/api/notifications/${notificationId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -168,7 +168,7 @@ const NotificationPage = () => {
         if (!token) throw new Error('No authentication token found');
 
         // Store the rating in the Menu collection
-        const rateResponse = await fetch(`http://localhost:5000/api/menu/${itemId}/rate`, {
+        const rateResponse = await fetch(`https://bitebuddy-backend-6wwq.onrender.com/api/menu/${itemId}/rate`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -179,7 +179,7 @@ const NotificationPage = () => {
         if (!rateResponse.ok) throw new Error('Failed to submit rating');
 
         // Mark the notification as read after each rating
-        const patchResponse = await fetch(`http://localhost:5000/api/notifications/${notificationId}`, {
+        const patchResponse = await fetch(`https://bitebuddy-backend-6wwq.onrender.com/api/notifications/${notificationId}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
@@ -198,7 +198,7 @@ const NotificationPage = () => {
 
         // If all items are rated, update the description and call onRate
         if (allRated) {
-          const finalPatchResponse = await fetch(`http://localhost:5000/api/notifications/${notificationId}`, {
+          const finalPatchResponse = await fetch(`https://bitebuddy-backend-6wwq.onrender.com/api/notifications/${notificationId}`, {
             method: 'PATCH',
             headers: {
               'Content-Type': 'application/json',
