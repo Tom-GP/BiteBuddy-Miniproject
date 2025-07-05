@@ -136,7 +136,7 @@ const OrderSummary = ({ cartItems, orderState, setOrderState, setShowSuccessModa
     useEffect(() => {
         const fetchUserId = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/profile", {
+                const response = await axios.get("https://bitebuddy-backend-6wwq.onrender.com/api/profile", {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },
