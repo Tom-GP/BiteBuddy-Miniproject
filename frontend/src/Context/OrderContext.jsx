@@ -10,7 +10,7 @@ export const OrderProvider = ({ children }) => {
 
     const createOrder = async (userId, orderNumber, cartItems, total, paymentMethod, deliveryMethod, deliveryAddress) => {
         try {
-          const response = await axios.post("http://localhost:5000/api/orders", {
+          const response = await axios.post("https://bitebuddy-backend-6wwq.onrender.com/api/orders", {
             userId,
             orderNumber,
             items: cartItems,
@@ -37,7 +37,7 @@ export const OrderProvider = ({ children }) => {
                   return;
               }
 
-              const response = await axios.get("http://localhost:5000/api/orders", {
+              const response = await axios.get("https://bitebuddy-backend-6wwq.onrender.com/api/orders", {
                   headers: { Authorization: `Bearer ${token}` },
               });
               setOrders(response.data);
