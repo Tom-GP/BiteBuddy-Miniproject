@@ -29,7 +29,7 @@ const AdminDashboard = () => {
     const [ratings, setRatings] = useState([]);
 
     const api = axios.create({
-        baseURL: 'http://localhost:5000/api',
+        baseURL: 'https://bitebuddy-backend-6wwq.onrender.com/api',
     });
 
     const fetchUserInfo = async () => {
