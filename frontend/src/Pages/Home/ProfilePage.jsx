@@ -38,7 +38,7 @@ const ProfilePage = () => {
         const fetchNotifications = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await fetch('http://localhost:5000/api/notifications', {
+                const response = await fetch('https://bitebuddy-backend-6wwq.onrender.com/api/notifications', {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },
@@ -78,7 +78,7 @@ const ProfilePage = () => {
             }
 
             try {
-                const response = await axios.get('http://localhost:5000/api/profile', {
+                const response = await axios.get('https://bitebuddy-backend-6wwq.onrender.com/api/profile', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 
@@ -141,7 +141,7 @@ const ProfilePage = () => {
         try {
             const token = localStorage.getItem('token');
             // Correct endpoint for password change
-            const response = await axios.post('http://localhost:5000/api/changepassword',
+            const response = await axios.post('https://bitebuddy-backend-6wwq.onrender.com/api/changepassword',
                 {
                     currentPassword: passwordData.currentPassword,
                     newPassword: passwordData.newPassword
@@ -179,7 +179,7 @@ const ProfilePage = () => {
         try {
             const token = localStorage.getItem('token');
             // Correct endpoint for profile update
-            const response = await axios.put('http://localhost:5000/api/profile',
+            const response = await axios.put('https://bitebuddy-backend-6wwq.onrender.com/api/profile',
                 {
                     name: editProfileData.name,
                     email: editProfileData.email,
