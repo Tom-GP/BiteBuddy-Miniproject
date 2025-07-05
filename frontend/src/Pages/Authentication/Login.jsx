@@ -19,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/login", { email, password })
+      const res = await axios.post("https://bitebuddy-backend-6wwq.onrender.com/api/login", { email, password })
       if (res.status === 200) {
         // Store the authentication token in localStorage
         localStorage.setItem('token', res.data.token);
