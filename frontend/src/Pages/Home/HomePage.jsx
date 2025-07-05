@@ -19,7 +19,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchPopularItems = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/menu");
+        const response = await axios.get("https://bitebuddy-backend-6wwq.onrender.com/api/menu");
         const limitedItems = response.data;
         setPopularItems(limitedItems);
         setLoading(false);
@@ -57,7 +57,7 @@ const HomePage = () => {
       }
 
       const response = await axios.post(
-        'http://localhost:5000/api/ratings',
+        'https://bitebuddy-backend-6wwq.onrender.com/api/ratings',
         { review },
         { headers: { Authorization: `Bearer ${token}` } }
       );
