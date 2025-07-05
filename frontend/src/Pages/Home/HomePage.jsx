@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "./Homepage.css"
+import "./HomePage.css"
 import React, { useEffect, useState } from 'react';
 import { useCart } from "../../Context/CartContext";
 import { Link, useNavigate } from "react-router-dom";
