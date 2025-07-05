@@ -8,7 +8,7 @@ export const CartContext = createContext();
 
 // Create an Axios instance with the backend base URL
 const api = axios.create({
-  baseURL: 'http://localhost:5000', // Replace with your backend port
+  baseURL: 'https://bitebuddy-backend-6wwq.onrender.com', // Replace with your backend port
 });
 
 // Create a CartProvider component
