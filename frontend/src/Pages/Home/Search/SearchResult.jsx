@@ -16,7 +16,7 @@ const SearchResult = () => {
     useEffect(() => {
         const fetchMenuItems = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/menu");
+                const response = await axios.get("https://bitebuddy-backend-6wwq.onrender.com/api/menu");
                 const itemsWithDelay = response.data.map((item, index) => ({
                     ...item,
                     delay: index * 100 // For animation, if needed
