@@ -39,7 +39,7 @@ const SignUp = () => {
         }
 
         try {
-            const res = await axios.post("http://localhost:5000/api/signup", {
+            const res = await axios.post("https://bitebuddy-backend-6wwq.onrender.com/api/signup", {
                 name,
                 email,
                 selectedOption,
