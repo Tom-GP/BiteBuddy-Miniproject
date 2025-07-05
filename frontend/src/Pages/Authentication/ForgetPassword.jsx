@@ -12,7 +12,7 @@ const ForgetPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/forgetpassword", { email });
+      const res = await axios.post("https://bitebuddy-backend-6wwq.onrender.com/api/forgetpassword", { email });
       setMessage("Password reset successfully! Please check your gmail for getting the temp password");
       setTimeout(() => {
         setMessage("");
